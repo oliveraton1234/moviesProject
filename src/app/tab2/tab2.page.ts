@@ -1,4 +1,9 @@
+
+
 import { Component } from '@angular/core';
+import { AnimeService } from '../services/anime.service';
+import { dataApi } from '../interfaces/pokemon-data';
+
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +12,14 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  misPokemons: any = [];
+  constructor(
+    private animeS: AnimeService
+  ) {
+    this.animeS.getTopAnimes().subscribe((card: dataApi) => {
+      this.misPokemons = card.data;
+      console.log(this.misPokemons);
+    });
+  }
 
 }

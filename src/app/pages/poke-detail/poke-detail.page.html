@@ -1,0 +1,83 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary" class="ion-text-center">
+    <ion-title>{{ cardPoke.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-grid >
+    <ion-row>
+      <ion-col size="6">
+        <img [src]="cardPoke?.images?.small" alt="">
+      </ion-col>
+      <ion-col size="6">
+        <ion-list>
+          <ion-item class="ion-no-padding">
+            <ion-icon slot="start" class="ion-no-margin"
+            name="star">
+            </ion-icon>
+            <ion-label style="margin-left: 5px !important;">
+            {{cardPoke.artist}}</ion-label>
+          </ion-item>
+
+          <ion-item class="ion-no-padding">
+            <ion-icon slot="start" class="ion-no-margin"
+            name="color-palette">
+            </ion-icon>
+            <ion-label style="margin-left: 5px !important;">
+            {{cardPoke.rarity}}</ion-label>
+          </ion-item>
+
+          <ion-item class="ion-no-padding">
+            <ion-icon slot="start" class="ion-no-margin"
+            name="apps">
+            </ion-icon>
+            <ion-label style="margin-left: 5px !important;">
+            {{cardPoke.types}}</ion-label>
+          </ion-item>
+
+          <ion-item class="ion-no-padding">
+            <ion-icon slot="start" class="ion-no-margin"
+            name="bug">
+            </ion-icon>
+            <ion-label style="margin-left: 5px !important;">
+            {{cardPoke.evolvesFrom }}</ion-label>
+          </ion-item>
+
+          <ion-item class="ion-no-padding">
+            <ion-icon slot="start" class="ion-no-margin"
+            name="heart">
+            </ion-icon>
+            <ion-label style="margin-left: 5px !important;">
+            {{cardPoke.hp }}</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center">
+      <ion-col class="ion-margin-start" size="12">
+        Habilidades:
+      </ion-col>
+      <ion-col size="4" *ngFor="let ab of cardPoke.abilities">
+        <ion-chip color="primary" mode="ios">
+          <ion-label>{{ab.name}}</ion-label>
+        </ion-chip>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center">
+      <ion-col class="ion-margin-start" size="12">
+        Ataques:
+      </ion-col>
+      <ion-col size="4" *ngFor="let atk of cardPoke.attacks">
+        <ion-chip color="tertiary" mode="ios">
+          <ion-label>{{atk.name}}</ion-label>
+        </ion-chip>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>
