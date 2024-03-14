@@ -13,11 +13,13 @@ import { dataApi } from '../interfaces/pokemon-data';
 export class Tab2Page {
 
   misPokemons: any = [];
+  load = false;
   constructor(
     private animeS: AnimeService
   ) {
     this.animeS.getTopAnimes().subscribe((card: dataApi) => {
       this.misPokemons = card.data;
+      this.load = true;
       console.log(this.misPokemons);
     });
   }
