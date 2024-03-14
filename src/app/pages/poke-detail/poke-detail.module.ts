@@ -13,7 +13,8 @@ import { PokeDetailPage } from './poke-detail.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    PokeDetailPageRoutingModule
+    PokeDetailPageRoutingModule,
+    CommonModule,
   ],
   declarations: [PokeDetailPage]
 })
