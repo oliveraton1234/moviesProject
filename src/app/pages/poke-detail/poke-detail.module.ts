@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { PokeDetailPageRoutingModule } from './poke-detail-routing.module';
 
 import { PokeDetailPage } from './poke-detail.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
@@ -14,7 +15,7 @@ import { PokeDetailPage } from './poke-detail.page';
     FormsModule,
     IonicModule,
     PokeDetailPageRoutingModule,
-    CommonModule,
+    ComponentsModule,
   ],
   declarations: [PokeDetailPage]
 })

@@ -96,6 +96,8 @@ export interface PokemonData {
     holofoil:        Holofoil;
     reverseHolofoil: Holofoil;
     normal:         Holofoil;
+    unlimitedHolofoil: Holofoil;
+    // 1stEditionHolofoil: Holofoil;
   }
 
   export interface Holofoil {

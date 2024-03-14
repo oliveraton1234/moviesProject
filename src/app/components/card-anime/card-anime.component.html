@@ -11,7 +11,7 @@
       {{
         card.tcgplayer?.prices?.holofoil?.mid ||
         card.tcgplayer?.prices?.normal?.mid ||
-        card.tcgplayer?.prices?.reverseHolofoil?.mid | currency
+        card.tcgplayer?.prices?.reverseHolofoil?.mid || null | currency
               }}
     </ion-card-subtitle>
   </ion-card-header>

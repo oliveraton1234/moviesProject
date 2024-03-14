@@ -78,6 +78,13 @@
       </ion-col>
     </ion-row>
 
+    <h1 class="ion-text-center">Otros</h1>
+    <ion-row>
+      <ion-col size="6" *ngFor="let cardPoke of relacionadas  ">
+        <app-card-anime [card]="cardPoke"></app-card-anime>
+      </ion-col>
+    </ion-row>
+
   </ion-grid>
 
 </ion-content>
