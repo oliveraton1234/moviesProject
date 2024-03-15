@@ -13,6 +13,8 @@ export class PokeDetailPage implements OnInit {
 
   cardPoke: any = {};
   relacionadas: PokemonData[] = [];
+  load = false;
+
   constructor(
     private activedRoute: ActivatedRoute,
     private animeS: AnimeService,
@@ -24,6 +26,7 @@ export class PokeDetailPage implements OnInit {
         console.log(card.data);
         this.cardPoke = card.data;
         this.getCardByName(this.cardPoke.name);
+        this.load = true;
       });
     });
   }
