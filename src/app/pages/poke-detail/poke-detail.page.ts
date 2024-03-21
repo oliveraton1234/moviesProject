@@ -26,7 +26,7 @@ export class PokeDetailPage implements OnInit {
         console.log(card.data);
         this.cardPoke = card.data;
         this.getCardByName(this.cardPoke.name);
-        this.load = true;
+
       });
     });
   }
@@ -39,6 +39,7 @@ export class PokeDetailPage implements OnInit {
     this.animeS.getCardByName(name).subscribe((card: dataApi) => {
       console.log(card.data);
       this.relacionadas = card.data;
+      this.load = true;
     });
   }
 

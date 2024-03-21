@@ -1,6 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActionSheetController } from '@ionic/angular';
+import { Share } from '@capacitor/share';
+import { FavoritosService } from 'src/app/services/favoritos.service';
+import { PokemonData } from 'src/app/interfaces/pokemon-data';
+
 
 @Component({
   selector: 'app-card-anime',
@@ -12,12 +16,13 @@ export class CardAnimeComponent  implements OnInit {
   @Input() card: any = {};
   constructor(
     private ActionSheetController: ActionSheetController,
+    private _favoritService: FavoritosService,
     private router: Router,
   ) { }
 
   ngOnInit() {}
 
-  async openActions(card: any){
+  async openActions(card: PokemonData){
     const actionSheet = await this.ActionSheetController.create({
       header: this.card.name,
       buttons: [
@@ -31,10 +36,21 @@ export class CardAnimeComponent  implements OnInit {
         {
           text: 'Compartir',
           icon: 'share-outline',
+           handler: () => {
+            Share.share({
+              title: this.card.name,
+              text: 'Te comparto mi carta favorita',
+              url: this.card.url,
+
+            });
+          }
         },
         {
           text: 'Favorites',
           icon: 'star-outline',
+          handler: () => {
+            this._favoritService.addFavorito(card);
+          }
         },
         {
           text: 'cancelar',
@@ -46,4 +62,5 @@ export class CardAnimeComponent  implements OnInit {
     await actionSheet.present();
   }
 
-}
+
+  }

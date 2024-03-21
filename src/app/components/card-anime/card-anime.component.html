@@ -4,15 +4,15 @@
   [src]="card?.images?.small"
     alt="cat">
   <ion-card-header class="ion-no-padding">
-    <ion-card-title class="ion-padding-start">
-      {{ card.name }}
-    </ion-card-title>
     <ion-card-subtitle class="ion-padding-start ion-padding-buttom">
       {{
         card.tcgplayer?.prices?.holofoil?.mid ||
         card.tcgplayer?.prices?.normal?.mid ||
         card.tcgplayer?.prices?.reverseHolofoil?.mid || null | currency
-              }}
+      }}
     </ion-card-subtitle>
+    <ion-card-title class="ion-padding-start">
+      {{ card.name }}
+    </ion-card-title>
   </ion-card-header>
 </ion-card>
