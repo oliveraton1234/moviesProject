@@ -1,17 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Mis Favoritos
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-grid>
+    <ion-row >
+      <ion-col sizeXs="6" sizeSm="6"  sizeMd="3" sizeLg="2"  *ngFor="let poke of favoritos">
+        <app-card-anime [card]="poke"></app-card-anime>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

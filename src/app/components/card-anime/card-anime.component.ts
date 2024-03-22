@@ -23,6 +23,10 @@ export class CardAnimeComponent  implements OnInit {
   ngOnInit() {}
 
   async openActions(card: PokemonData){
+
+    const encontrado = this._favoritService.CheckInFavoritos(card);
+    console.log(encontrado);
+
     const actionSheet = await this.ActionSheetController.create({
       header: this.card.name,
       buttons: [
@@ -46,8 +50,8 @@ export class CardAnimeComponent  implements OnInit {
           }
         },
         {
-          text: 'Favorites',
-          icon: 'star-outline',
+          text: encontrado ? 'Eliminar de favoritos' :  'Agregar a avoritos',
+          icon: encontrado ? 'trash-outline' : 'star-outline',
           handler: () => {
             this._favoritService.addFavorito(card);
           }
